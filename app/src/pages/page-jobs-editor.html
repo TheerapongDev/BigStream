@@ -3,6 +3,7 @@
 <link rel="import" href="/bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="/bower_components/iron-a11y-keys/iron-a11y-keys.html">
 
+
 <link rel="import" href="../common/plugin-select.html">
 <link rel="import" href="../common/jobeditor/joblist.html">
 <link rel="import" href="../common/jobeditor/job-tree.html">
@@ -239,6 +240,8 @@
             }
         </style>
 
+
+
         <iron-a11y-keys id="a11y" keys="ctrl+n" target="[[shortcutKeytarget]]" on-keys-pressed="_shortcutKeyHandler"></iron-a11y-keys>
         <iron-a11y-keys id="a11yCodeEditor" keys="ctrl+s ctrl+shift+s ctrl+c" on-keys-pressed="_shortcutKeyEditorHandler"></iron-a11y-keys>
 
@@ -253,7 +256,7 @@
             </div>
             <div class="buttons">
                 <paper-button class="btn btn-success submitbt" on-click="_createNewJobBt">create job</paper-button>
-                <paper-button class="btn btn-info submitbt" on-click="_onOpenFile">Open File</paper-button>
+                <!-- <paper-button class="btn btn-info submitbt" on-click="_onOpenFile">Open File</paper-button> -->
                 <paper-button class="btn btn-danger" dialog-confirm>cancel</paper-button>
             </div>
         </paper-dialog>
@@ -275,7 +278,8 @@
         <paper-dialog modal id="saveasJobDialog">
             <div class="form-group">
                 <h6>Save as</h6>
-                <input type="text" class="form-control" value="{{newJobName::input}}" placeholder="" autofocus on-keydown="checkForEnter">
+                <input style="width: 300px" type="text" class="form-control input-saveas" value="{{newJobName::input}}" placeholder="" autofocus
+                    on-keydown="checkForEnter">
                 <div class="form-control-feedback" hidden>Can't use space in job name</div>
             </div>
             <div class="buttons">
@@ -557,6 +561,9 @@
                         this));
                     this.$.joblistElement.addEventListener('toggle-add-job', this._addJobDialogToggle.bind(
                         this));
+                    this.$.joblistElement.addEventListener('toggle-open-job', this._openJobDialogToggle.bind(this)
+
+                    );
                     this.$.joblistElement.addEventListener('delete-job', this._deleteJob.bind(this));
 
                     // Key shortcut
@@ -590,6 +597,10 @@
             }
             _toggleEditor() {
                 this.toggleEditor = !this.toggleEditor;
+            }
+
+            _openJobDialogToggle() {
+                this._onOpenFile();
             }
 
             _addJobDialogToggle() {

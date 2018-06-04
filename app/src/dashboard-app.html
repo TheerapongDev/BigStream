@@ -35,6 +35,10 @@
 
 <link rel="lazy-import" href="./pages/page-view404.html">
 
+<link rel="import" href="/bower_components/paper-fab-speed-dial/paper-fab-speed-dial.html">
+<link rel="import" href="/bower_components/paper-fab-speed-dial/paper-fab-speed-dial-action.html">
+<link rel="import" href="/bower_components/paper-fab-speed-dial/paper-fab-speed-dial-overlay.html">
+
 <script>
   if (typeof module === 'object') {
     window.module = module;
@@ -151,8 +155,17 @@
       #jobEditor {
         background: 1px solid red;
       }
+
+      /* paper-fab-speed-dial {
+        --paper-fab-speed-dial-right: 400px;
+      } */
     </style>
     <config-element></config-element>
+
+
+
+
+
     <app-location route="{{route}}"></app-location>
     <app-route route="{{route}}" pattern="/:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
     <app-route route="{{subroute}}" pattern="/:subpage" data="{{routeSubData}}" tail="{{pageid}}"></app-route>
@@ -180,7 +193,12 @@
           <page-storages-detail id="storages-detail" name="storages-detail" route="{{pageid}}" storagesapi="{{storagesapi}}" storagesobjapi="{{storagesobjapi}}"></page-storages-detail>
           <page-setting name="setting" id="setting"></page-setting>
           <page-view404 id="view404" name="view404"></page-view404>
+
         </iron-pages>
+        <!-- <paper-fab-speed-dial with-backdrop>
+          <paper-fab-speed-dial-action icon="icons:content-copy">Copy</paper-fab-speed-dial-action>
+          <paper-fab-speed-dial-action icon="icons:print">Print</paper-fab-speed-dial-action>
+        </paper-fab-speed-dial> -->
       </div>
     </div>
     <!--</app-header-layout>-->

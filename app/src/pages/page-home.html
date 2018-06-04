@@ -10,6 +10,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="/bower_components/polymer/polymer-element.html">
 <link rel="import" href="../shared-styles.html">
+<!-- <link rel="import" href="/bower_components/paper-fab-transitions/paper-fab-morph.html">
+<link rel="import" href="/bower_components/paper-fab-transitions/paper-fab-speed-dial.html">
+<link rel="import" href="/bower_components/iron-flex-layout/iron-flex-layout.html"> -->
 
 <dom-module id="page-home">
   <template>
@@ -100,6 +103,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       id="updateJobsList" on-response="_responseJobs"></iron-ajax>
     <iron-ajax url="[[config.api.storages_api]]" loading="{{loading}}" handle-as="json" last-response="{{storages}}" id="updateStorageLists"
       on-error="_ajexerror" auto></iron-ajax>
+
+
+      <!-- <paper-fab-speed-dial>
+        <paper-fab icon="add" class="dropdown-trigger"></paper-fab>
+        <div class="dropdown-content">
+          <paper-fab mini icon="star-border"></paper-fab>
+          <paper-fab mini icon="star-half"></paper-fab>
+          <paper-fab mini icon="star"></paper-fab>
+        </div>
+      </paper-fab-speed-dial> -->
 
     <div class="container-fluid">
       <div class="row">
